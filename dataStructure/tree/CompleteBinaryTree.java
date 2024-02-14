@@ -40,7 +40,7 @@ public class CompleteBinaryTree<T> {
 	}
 	
 	/**
-	 * 현재 높이를 확인하며 bfs
+	 * breadth 단위로 height 조절
 	 */
 	public void bfs() {
 		Queue<Integer> queue = new ArrayDeque<>();
@@ -53,7 +53,6 @@ public class CompleteBinaryTree<T> {
 			if (cnt == 0) {
 				height++;
 				cnt = queue.size();
-				System.out.println("\n높이가 " + height + "인 노드의 갯수는 " + cnt + "개입니다.");
 			}
 			
 			cnt--;
@@ -76,7 +75,7 @@ public class CompleteBinaryTree<T> {
 	/**
 	 * 전위 순회
 	 */
-	public void preorderTraversal(int idx) {
+	public void dfsByPreorder(int idx) {
 		if (idx == 0 || idx > lastIdx) {
 			return;
 		}
@@ -84,47 +83,47 @@ public class CompleteBinaryTree<T> {
 		System.out.print(nodes[idx] + " ");
 		
 		if (idx * 2 <= lastIdx) {
-			preorderTraversal(idx * 2);
+			dfsByPreorder(idx * 2);
 		}
 		
 		if (idx * 2 + 1<= lastIdx) {
-			preorderTraversal(idx * 2 + 1);
+			dfsByPreorder(idx * 2 + 1);
 		}
 	}
 	
 	/**
 	 * 중위 순회
 	 */
-	public void inorderTraversal(int idx) {
+	public void dfsByInorder(int idx) {
 		if (idx == 0 || idx > lastIdx) {
 			return;
 		}
 		
 		if (idx * 2 <= lastIdx) {
-			inorderTraversal(idx * 2);
+			dfsByInorder(idx * 2);
 		}
 		
 		System.out.print(nodes[idx] + " ");
 		
 		if (idx * 2 + 1<= lastIdx) {
-			inorderTraversal(idx * 2 + 1);
+			dfsByInorder(idx * 2 + 1);
 		}
 	}
 	
 	/**
 	 * 후위 순회
 	 */
-	public void postorderTraversal(int idx) {
+	public void dfsByPostorder(int idx) {
 		if (idx == 0 || idx > lastIdx) {
 			return;
 		}
 		
 		if (idx * 2 <= lastIdx) {
-			postorderTraversal(idx * 2);
+			dfsByPostorder(idx * 2);
 		}
 		
 		if (idx * 2 + 1<= lastIdx) {
-			postorderTraversal(idx * 2 + 1);
+			dfsByPostorder(idx * 2 + 1);
 		}
 		
 		System.out.print(nodes[idx] + " ");

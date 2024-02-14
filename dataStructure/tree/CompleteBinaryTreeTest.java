@@ -7,15 +7,16 @@ public class CompleteBinaryTreeTest {
 			tree.add((char) (65 + i));
 		}
 		
+		System.out.println("===bfs===");
 		tree.bfs();
-		System.out.println();
 		
-		tree.preorderTraversal(1);
-		System.out.println();
+		System.out.println("\n===PreOrder===");
+		tree.dfsByPreorder(1);
 		
-		tree.inorderTraversal(1);
-		System.out.println();
+		System.out.println("\n===InOrder===");
+		tree.dfsByInorder(1);
 		
-		tree.postorderTraversal(1);
+		System.out.println("\n===PostOrder===");
+		tree.dfsByPostorder(1);
 	}
 }
