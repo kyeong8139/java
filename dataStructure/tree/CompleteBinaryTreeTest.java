@@ -1,4 +1,4 @@
-package Tree;
+package tree;
 
 public class CompleteBinaryTreeTest {
 	public static void main(String[] args) {
@@ -8,5 +8,14 @@ public class CompleteBinaryTreeTest {
 		}
 		
 		tree.bfs();
+		System.out.println();
+		
+		tree.preorderTraversal(1);
+		System.out.println();
+		
+		tree.inorderTraversal(1);
+		System.out.println();
+		
+		tree.postorderTraversal(1);
 	}
 }
